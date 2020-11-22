@@ -1,0 +1,14 @@
+C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Pokedex.exe.config
+C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Pokedex.exe
+C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Pokedex.pdb
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.csprojAssemblyReference.cache
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.Form1.resources
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.Properties.Resources.resources
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.csproj.GenerateResource.cache
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.csproj.CoreCompileInputs.cache
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.exe
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.pdb
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.Form2.resources
+C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Newtonsoft.Json.dll
+C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Newtonsoft.Json.xml
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.csproj.CopyComplete
