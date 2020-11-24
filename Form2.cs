@@ -12,8 +12,9 @@ namespace Pokedex
 {
     public partial class Form2 : Form
     {
-        private string username = "daniel";
-        private string password = "poquet";
+        private string username1 = "daniel";
+        private string password1 = "poquet";
+        private string password2 = "burruchaga";
         private int loginAttempts = 0;
         public Form2()
         {
@@ -27,7 +28,7 @@ namespace Pokedex
 
         private void login()
         {
-            if (UsernameTextBox.Text == username & passwordTextBox.Text == password)
+            if (UsernameTextBox.Text == username1 & (passwordTextBox.Text == password1)||(passwordTextBox.Text == password2))
             {
                 this.Hide();
                 // Create a new instance of the Form2 class
@@ -49,6 +50,11 @@ namespace Pokedex
         }
 
         private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

@@ -1,0 +1,13 @@
+Pokemon;Level;Type;Weight;Sex;Price;Ammount
+Pichu;7;Electric;5;Female;15;2
+Pikachu;14;Electric;18;Male;25;3
+Raichu;23;Electric;31;Female;35;2
+Turtwig;6;GRASS;6;Male;11;1
+Grotle;15;GRASS;56;Female;22;2
+Torterra;24;GRASS;120;Male;34;1
+Chimchar;8;FIRE;9;Female;7;3
+Monferno;16;FIRE;34;Male;18;2
+Infernape;25;FIRE;63;Female;26;1
+Piplup;5;WATER;4;Male;9;1
+Prinplup;18;WATER;17;Female;14;2
+Empoleon;26;WATER;52;Male;19;1
