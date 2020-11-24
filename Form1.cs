@@ -27,7 +27,7 @@ namespace Pokedex
 
         public Pokemon SearchOnPokemonArray(string name)
         {
-            for(int i=0; i<pokedex.Count; i++)
+            for (int i = 0; i < pokedex.Count; i++)
             {
                 if (pokedex[i].name.Equals(name))
                 {
@@ -50,8 +50,8 @@ namespace Pokedex
             pokemonListBox.Items.Clear();
             for (int i = 0; i < pokedex.Count; i++)
             {
-                pokemonListBox.Items.Add(pokedex[i].name.ToString());  // PASAR A minusculas
-                //pokemonsListTextBox.Text += pokedex[i].name.ToString() + Environment.NewLine;
+                pokemonListBox.Items.Add(pokedex[i].name.ToString()); 
+               
             }
         }
 
@@ -59,8 +59,6 @@ namespace Pokedex
         {
 
         }
-
-
 
         private void fillPokedex()
         {
@@ -79,7 +77,6 @@ namespace Pokedex
             Pokemon pokemon10 = new Pokemon("Prinplup", 18, "WATER", 17, "Female", 14, 2);
             Pokemon pokemon11 = new Pokemon("Empoleon", 26, "WATER", 52, "Male", 19, 1);
 
-            //I add them to the pokedex array
             pokedex.Add(pokemon0);
             pokedex.Add(pokemon1);
             pokedex.Add(pokemon2);
@@ -129,7 +126,7 @@ namespace Pokedex
                     PriceTextBox.Text = searchedPokemon.price.ToString();
                     AmmountTextBox.Text = searchedPokemon.ammount.ToString();
                 }
-               
+
             }
         }
 
@@ -149,9 +146,10 @@ namespace Pokedex
 
         private void editPokemonBtn_Click(object sender, EventArgs e)
         {
-            if (searchedPokemon != null && Validate()) 
+            if (searchedPokemon != null && Validate())
             {
-                try { 
+                try
+                {
                     pokedex[searchedPokemonPos].name = nameTextBox.Text;
                     pokedex[searchedPokemonPos].level = int.Parse(levelTextBox.Text);
                     pokedex[searchedPokemonPos].type = TypeTextBox.Text;
@@ -185,70 +183,70 @@ namespace Pokedex
 
         private new bool Validate()
         {
-             
-            String expresionRegular = "[a-zA-Z]";
-            String expresionRegular2 = "(^[1-9]{1}$|^[1-4]{1}[0-9]{1}$|^50$)";
-         
-            Regex re = new Regex(expresionRegular);
-            Regex reg = new Regex(expresionRegular2);
+
+
+            String regExpNumberTo = @"(^[1-9]{1}$|^[1-4]{1}[0-9]{1}$|^50$)";
+            string regExpFloat = @"^[0-9]*(?:\.[0-9]+)?$";
+
+
+            Regex RegExpText = new Regex(@"^[a-zA-Z]+$");
+            Regex RegExpNumberTo = new Regex(regExpNumberTo);
+            Regex RegExpFloat = new Regex(regExpFloat);
+
             bool resultado = false;
 
-            resultado = re.IsMatch(nameTextBox.Text) && reg.IsMatch(levelTextBox.Text) && reg.IsMatch(WeightTextBox.Text) && re.IsMatch(SexTextBox.Text) &&/* reg.IsMatch(PriceTextBox.Text)&&*/ reg.IsMatch(AmmountTextBox.Text);
+            resultado = RegExpText.IsMatch(nameTextBox.Text) && RegExpNumberTo.IsMatch(levelTextBox.Text) && RegExpNumberTo.IsMatch(WeightTextBox.Text) &&
+                RegExpText.IsMatch(SexTextBox.Text) && RegExpText.IsMatch(TypeTextBox.Text) && RegExpFloat.IsMatch(PriceTextBox.Text) && RegExpNumberTo.IsMatch(AmmountTextBox.Text);
 
             if (resultado) { return true; ; }
-            else { 
+            else
+            {
                 MessageBox.Show("Not valid chars");
                 return false;
             }
-          
-            // DONE --> comprobar que no hay otro pokemon con el mismo nombre
-            //DONE comprobar que no hay un atributo vacio en el constructor
+
+
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
             bool succesName = true;
-            try //MIAU
+            try
             {
                 Pokemon pokemon = new Pokemon(nameTextBox.Text, int.Parse(levelTextBox.Text), TypeTextBox.Text, int.Parse(WeightTextBox.Text), SexTextBox.Text, float.Parse(PriceTextBox.Text), int.Parse(AmmountTextBox.Text));
                 for (int i = 0; i < pokedex.Count; i++)
                 {
-                    if (pokedex[i].name == pokemon.name )
+                    if (pokedex[i].name == pokemon.name)
                     {
                         succesName = false;
                         break;
                     }
-                    
+
                 }
                 if (Validate())
                 {
                     if (succesName)
-                    { 
+                    {
                         pokedex.Add(pokemon);
                         showPokemonsListToUser();
                         succesName = true;
                     }
                     else
                     {
-                        MessageBox.Show("Pokemon repetido");
+                        MessageBox.Show("Repeated Pokemon ");
                     }
                 }
-             
-               
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-           
-           
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-             
+
             convertPokedexToJSON();
-            
+
         }
 
         private void convertPokedexToJSON()
@@ -266,29 +264,30 @@ namespace Pokedex
             }
             try
             {
-                File.WriteAllText("pokedexJSON", JsonData);
+                File.WriteAllText("pokedexJSON.json", JsonData);
+                MessageBox.Show("JSON File created ! ");
+
             }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-}
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the Form3 class
+
             Form3 settingsForm = new Form3(pokedex);
 
-            // Show the settings form
+
             settingsForm.Show();
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the Form4 class
-            Form4 aboutForm = new Form4();
 
-            //Show about form
+            Form4 aboutForm = new Form4();
             aboutForm.Show();
         }
     }

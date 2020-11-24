@@ -31,10 +31,8 @@ namespace Pokedex
             if (UsernameTextBox.Text == username1 & (passwordTextBox.Text == password1)||(passwordTextBox.Text == password2))
             {
                 this.Hide();
-                // Create a new instance of the Form2 class
-                Form1 settingsForm = new Form1();
 
-                // Show the settings form
+                Form1 settingsForm = new Form1();
                 settingsForm.Show();
             }
             else

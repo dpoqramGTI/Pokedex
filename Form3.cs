@@ -11,9 +11,11 @@ using System.IO;
 using System.Xml;
 
 namespace Pokedex
-{
+{         
     public partial class Form3 : Form
     {
+        int productNumber = 0;
+
         private List<Pokemon> pokedex = new List<Pokemon>();
         bool xml = false;
         public Form3(List<Pokemon> pokedex)
@@ -39,11 +41,12 @@ namespace Pokedex
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(xml == false) {
+   
+            if (xml == false) {
                 try
                 {
                     addToCsv();
-
+                    MessageBox.Show("CSV File created ! ");
                 }
              catch(Exception ex)
                 {
@@ -53,26 +56,21 @@ namespace Pokedex
             else {
                 try
                 {
-                    addToXml();
+                    addToXml(productNumber);
 
                     XmlDataDocument xmldoc = new XmlDataDocument();
                     XmlNodeList xmlnode;
                     int i = 0;
+                   
                     string str = null;
-                    FileStream fs = new FileStream("product.xml", FileMode.Open, FileAccess.Read);
+                    
+
+                    FileStream fs = new FileStream("pokedex" + productNumber.ToString() + ".xml", FileMode.Open, FileAccess.Read);
+                    productNumber++;
                     xmldoc.Load(fs);
                     str = xmldoc.InnerXml;
-                    //xmlnode = xmldoc.GetElementsByTagName("Table");
-                    /*
-                    for (i = 0; i <= xmlnode.Count - 1; i++)
-                    {
-                        //str = xmlnode[0].ChildNodes.Item(i).InnerXml.Trim();
-                        //xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
-                        //str = "Name" + xmlnode[i].ChildNodes.Item(0) + " : " + xmlnode[i].ChildNodes.Item(0).InnerText.Trim() + "  " + "Level"+ xmlnode[i].ChildNodes.Item(1).InnerText.Trim() + "  " + "Type " +xmlnode[i].ChildNodes.Item(2).InnerText.Trim() + "Weight " + xmlnode[i].ChildNodes.Item(3).InnerText.Trim() + "Sex " + xmlnode[i].ChildNodes.Item(4).InnerText.Trim() + "Price " + xmlnode[i].ChildNodes.Item(5).InnerText.Trim() + "Tipo " + xmlnode[i].ChildNodes.Item(6).InnerText.Trim();
-                      
-                    }*/
                     textBox1.Text = str.ToString();
-                    //MessageBox.Show(str);
+                    
                 }
                 catch (Exception ex)
                 {
@@ -82,17 +80,9 @@ namespace Pokedex
             }
 
         }
-
-        /* this.name = name;
-            this.level = level;
-            this.type = type;
-            this.weight = weight;
-            this.sex = sex;
-            this.price = price;
-            this.ammount = ammount;*/
-       public void addToXml()
+       public void addToXml(int productNumber)
         {
-            XmlTextWriter writer = new XmlTextWriter("product.xml", System.Text.Encoding.UTF8);
+            XmlTextWriter writer = new XmlTextWriter("pokedex" + productNumber.ToString() + ".xml", System.Text.Encoding.UTF8);
             writer.WriteStartDocument(true);
             writer.Formatting = Formatting.Indented;
             writer.Indentation = 2;
@@ -111,7 +101,6 @@ namespace Pokedex
         }
         public  void addToCsv()
         {
-            // Use a StringBuilder to accumulate your output
             StringBuilder sb = new StringBuilder("Pokemon;Level;Type;Weight;Sex;Price;Ammount\r\n");
             String row;
             List<Pokemon> pokedex1 = new List<Pokemon>();
@@ -127,8 +116,6 @@ namespace Pokedex
                 sb.AppendLine();
                 
             }
-
-            // Write everything with a single command 
             File.WriteAllText(@"fileadress.csv", sb.ToString());
             textBox1.Text = sb.ToString();
 
@@ -158,10 +145,7 @@ namespace Pokedex
             writer.WriteStartElement("Ammount");
             writer.WriteString(ammount.ToString());
             writer.WriteEndElement();
-            writer.WriteEndElement();
-
-
-          
+            writer.WriteEndElement();        
 
         }
         private void textBox1_TextChanged(object sender, EventArgs e)
