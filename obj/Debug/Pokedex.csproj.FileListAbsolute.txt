@@ -12,3 +12,5 @@ C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.Form2.resources
 C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Newtonsoft.Json.dll
 C:\Users\DANI\source\repos\Pokedex\Pokedex\bin\Debug\Newtonsoft.Json.xml
 C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.csproj.CopyComplete
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.Form3.resources
+C:\Users\DANI\source\repos\Pokedex\Pokedex\obj\Debug\Pokedex.Form4.resources

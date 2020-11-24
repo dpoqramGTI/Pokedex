@@ -61,13 +61,16 @@ namespace Pokedex
                     string str = null;
                     FileStream fs = new FileStream("product.xml", FileMode.Open, FileAccess.Read);
                     xmldoc.Load(fs);
-                    xmlnode = xmldoc.GetElementsByTagName("Table");
+                    str = xmldoc.InnerXml;
+                    //xmlnode = xmldoc.GetElementsByTagName("Table");
+                    /*
                     for (i = 0; i <= xmlnode.Count - 1; i++)
                     {
-                        xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
-                        str = "Name" + xmlnode[i].ChildNodes.Item(0) + " : " + xmlnode[i].ChildNodes.Item(0).InnerText.Trim() + "  " + "Level"+ xmlnode[i].ChildNodes.Item(1).InnerText.Trim() + "  " + "Type " +xmlnode[i].ChildNodes.Item(2).InnerText.Trim() + "Weight " + xmlnode[i].ChildNodes.Item(3).InnerText.Trim() + "Sex " + xmlnode[i].ChildNodes.Item(4).InnerText.Trim() + "Price " + xmlnode[i].ChildNodes.Item(5).InnerText.Trim() + "Tipo " + xmlnode[i].ChildNodes.Item(6).InnerText.Trim();
+                        //str = xmlnode[0].ChildNodes.Item(i).InnerXml.Trim();
+                        //xmlnode[i].ChildNodes.Item(0).InnerText.Trim();
+                        //str = "Name" + xmlnode[i].ChildNodes.Item(0) + " : " + xmlnode[i].ChildNodes.Item(0).InnerText.Trim() + "  " + "Level"+ xmlnode[i].ChildNodes.Item(1).InnerText.Trim() + "  " + "Type " +xmlnode[i].ChildNodes.Item(2).InnerText.Trim() + "Weight " + xmlnode[i].ChildNodes.Item(3).InnerText.Trim() + "Sex " + xmlnode[i].ChildNodes.Item(4).InnerText.Trim() + "Price " + xmlnode[i].ChildNodes.Item(5).InnerText.Trim() + "Tipo " + xmlnode[i].ChildNodes.Item(6).InnerText.Trim();
                       
-                    }
+                    }*/
                     textBox1.Text = str.ToString();
                     //MessageBox.Show(str);
                 }

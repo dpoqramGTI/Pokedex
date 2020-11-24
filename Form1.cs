@@ -276,11 +276,20 @@ namespace Pokedex
 
         private void button3_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the Form2 class
+            // Create a new instance of the Form3 class
             Form3 settingsForm = new Form3(pokedex);
 
             // Show the settings form
             settingsForm.Show();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the Form4 class
+            Form4 aboutForm = new Form4();
+
+            //Show about form
+            aboutForm.Show();
         }
     }
 }
